@@ -1,5 +1,5 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
-process.env.DATABASE_URL='postgres://voowoatewzvwue:c4eeee1fc1ac890004741cdb9430174943542e06b2da624b71e24b20dfbbd0f5@ec2-54-83-9-169.compute-1.amazonaws.com:5432/d6csm3ko6nahd'
+process.env.DATABASE_URL='postgres://idqzigdqonfohm:e49008a778f92b0f817cc2ef97e52339bf80533f42abd42f3ee60aa047cadfbf@ec2-184-73-192-172.compute-1.amazonaws.com:5432/daa7e1qqkik4t0'
 
 const express = require('express')
 const app = express()
@@ -17,16 +17,13 @@ app.get('/', (req, res, next) => {
        if (err) {
            console.log("Can not connect to the DB" + err);
        }
-       client.query('SELECT u.nickname FROM users u WHERE age = (SELECT MAX(age) FROM users)', function (err, result) {
-	//client.query('SELECT * FROM users', function (err, result) {
+       client.query('SELECT u.nickname FROM users u WHERE age = (SELECT MAX(age) FROM users);SELECT s.name FROM salesforce.account s WHERE s.numberofemployees < 10', function (err, result) {
             done();
             if (err) {
                 console.log(err);
                 res.status(400).send(err);
             }
-            //res.status(200).send(result.rows);
-	    //res.status(200).send(result.rows[0].nickname);
-	    res.status(200).send("This is " + result.rows[0].nickname + "'s first Heroku Application!");
+            res.status(200).send("This is " + result[0].rows[0].nickname + "'s first Heroku Application! " + '<br/>' + result[0].rows[0].nickname + " is the Founder of the Smallest Company:  " + result[1].rows[0].name);
        })
    })
 });
@@ -34,6 +31,5 @@ app.get('/', (req, res, next) => {
 const port = process.env.PORT || 5000
 
 app.listen(port, function() {
-	console.log("Listening on " + port);
+        console.log("Listening on " + port);
 });
-
