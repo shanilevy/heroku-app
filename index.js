@@ -1,4 +1,5 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
+process.env.DATABASE_URL='postgres://voowoatewzvwue:c4eeee1fc1ac890004741cdb9430174943542e06b2da624b71e24b20dfbbd0f5@ec2-54-83-9-169.compute-1.amazonaws.com:5432/d6csm3ko6nahd'
 
 const express = require('express')
 const app = express()
@@ -7,8 +8,7 @@ var format = require('pg-format')
 
 const { Pool } = require('pg');
 const pool = new Pool({
-  connectionString: 'postgres://voowoatewzvwue:c4eeee1fc1ac890004741cdb9430174943542e06b2da624b71e24b20dfbbd0f5@ec2-54-83-9-169.compute-1.amazonaws.com:5432/d6csm3ko6nahd',
-//  connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
 //  ssl: true
 });
 
