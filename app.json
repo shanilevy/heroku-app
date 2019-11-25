@@ -1,0 +1,7 @@
+{
+  "name": "Node.js Heroku Sample",
+  "description": "Heroku first Node.js app",
+  "repository": "https://github.com/shanilevy/heroku-app",
+  "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFDeWj8jgPIAV7HJXY47_kzG2B5_Uuw7D_JI8juSVI5t7aGC0J",
+  "keywords": ["node", "express", "static"]
+}
