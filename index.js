@@ -25,7 +25,8 @@ app.get('/', (req, res, next) => {
                 res.status(400).send(err);
             }
             //res.status(200).send(result.rows);
-	      res.status(200).send(result.rows[0].nickname);
+	    //res.status(200).send(result.rows[0].nickname);
+	    res.status(200).send("This is " + result.rows[0].nickname + "'s first Heroku Application!");
        })
    })
 });
