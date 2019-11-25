@@ -17,7 +17,7 @@ app.get('/', (req, res, next) => {
        if (err) {
            console.log("Can not connect to the DB" + err);
        }
-       client.query('SELECT u.nickname FROM users u WHERE age = (SELECT MAX(age) FROM users);SELECT s.name FROM salesforce.account s WHERE s.numberofemployees < 10', function (err, result) {
+       client.query('SELECT nickname FROM users WHERE age = (SELECT MAX(age) FROM users);SELECT name FROM salesforce.account WHERE numberofemployees = (SELECT MIN(numberofemployees) FROM salesforce.account)', function(err,result){
             done();
             if (err) {
                 console.log(err);
