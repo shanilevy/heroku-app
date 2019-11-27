@@ -1,5 +1,5 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
-process.env.DATABASE_URL='postgres://idqzigdqonfohm:e49008a778f92b0f817cc2ef97e52339bf80533f42abd42f3ee60aa047cadfbf@ec2-184-73-192-172.compute-1.amazonaws.com:5432/daa7e1qqkik4t0'
+process.env.DATABASE_URL='postgres://bpdkpxgtbtnxil:e3c3dcc3178b70beaea9b839e8a449bbc886e22901a994f2f756fd735f57d204@ec2-107-22-239-155.compute-1.amazonaws.com:5432/d7gpfk35g7m58s'
 
 const express = require('express')
 const app = express()
