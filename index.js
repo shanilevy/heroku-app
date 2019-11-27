@@ -17,13 +17,13 @@ app.get('/', (req, res, next) => {
        if (err) {
            console.log("Can not connect to the DB" + err);
        }
-       client.query('SELECT nickname FROM users WHERE age = (SELECT MAX(age) FROM users);SELECT name FROM salesforce.account WHERE numberofemployees = (SELECT MIN(numberofemployees) FROM salesforce.account)', function(err,result){
+       client.query('SELECT nickname FROM users WHERE age = (SELECT MAX(age) FROM users);SELECT name FROM salesforce.account WHERE numberofemployees = (SELECT MAX(numberofemployees) FROM salesforce.account)', function(err,result){
             done();
             if (err) {
                 console.log(err);
                 res.status(400).send(err);
             }
-            res.status(200).send("This is " + result[0].rows[0].nickname + "'s first Heroku Application! " + '<br/>' + result[0].rows[0].nickname + " is the Founder of the Smallest Company:  " + result[1].rows[0].name);
+            res.status(200).send("This is " + result[0].rows[0].nickname + "'s first Heroku Application! " + '<br/>' + result[0].rows[0].nickname + " is the Founder of the Biggest Company:  " + result[1].rows[0].name);
        })
    })
 });
